@@ -6,11 +6,18 @@
 /*   By: thivu <thivu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 10:06:36 by thivu             #+#    #+#             */
-/*   Updated: 2024/07/15 15:28:48 by thivu            ###   ########.fr       */
+/*   Updated: 2024/08/15 11:40:08 by thivu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+int	ft_putpoint(unsigned long p)
+{
+	if (!p)
+		return (write(1, "(nil)", 5));
+	return (write(1, "0x", 2) + ft_putnbr_hex(p, "0123456789abcdef"));
+}
 
 static int	check_format(char format, va_list args)
 {
